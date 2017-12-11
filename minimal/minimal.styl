@@ -1,0 +1,251 @@
+// @import "../path/to/font.css" Import Fonts Here
+
+$serif = "freight-text-pro" // Set Serif Font
+$mono = "Apercu Mono" // Set Mono Font
+$sans = "aktiv-grotesk" // Set Sans Serif Font
+$main = #2b2937 // Set Main Color
+$secondary = white
+$tertiary = #A4CDFC
+$textColor = black
+$backgroundColor = #fafafa // Set Background Color for <body>
+$linkFontFamily = $sans
+$linkMainColor = $main
+$linkHoverColor = $tertiary
+$headerLinkColor = $secondary
+$headerLinkHoverColor = $tertiary
+$normalButtonTextColor = $secondary
+$normalButtonHoverTextColor = white
+$outlineButtonTextColor = black
+$outlineButtonHoverTextColor = white
+$buttonFontFamily = $sans
+$inputBackground = white
+$inputBorder = #eaeaea
+$inputHoverBorder = $main
+$inputActiveBorder = $tertiary
+
+*
+    padding 0
+    margin 0
+    
+body
+    background-color $backgroundColor
+    font-family $sans
+    font-size 1rem
+    color $textColor
+    
+h1, .h1
+    font-family $sans
+    padding-top 12.8px
+    font-size 3rem
+    font-weight 700
+    
+h2, .h2
+    font-family $sans
+    padding-top 12.8px
+    font-size 2.5rem
+
+h3, .h3
+    font-family $sans
+    padding-top 12.8px
+    font-size 2rem
+    
+h4, .h4
+    font-family $sans
+    padding-top .75rem
+    font-size 1.5rem
+    
+h5, .h5
+    font-family $sans
+    padding-top .5rem
+    font-size 1.25rem
+    
+h6, .h6
+    font-family $sans
+    padding-top .3rem
+    font-size 1rem
+    
+p, .p
+    font-family $sans
+    font-weight 300
+    padding-top .3rem
+    font-size 1rem
+    
+ul
+    margin-left 3rem
+    
+a
+    color $linkMainColor
+    font-family $linkFontFamily
+    transition 300ms color ease-in-out
+    &:hover
+        color $linkHoverColor
+        
+button
+    font-family $buttonFontFamily
+    padding 5px 20px
+    border 1px solid $main
+    background-color $main
+    color $normalButtonTextColor
+    cursor pointer
+    border-radius 5px
+    margin-top 12.8px
+    transition 200ms ease-in-out transform
+    &:hover
+        transform scale(1.05)
+        color $normalButtonHoverTextColor
+    &:active
+        transform scale(.98)
+        
+button.outline
+    padding 5px 20px
+    border 1px solid $outlineButtonBorderColor
+    background-color transparent
+    color $outlineButtonTextColor
+    cursor pointer
+    border-radius 5px
+    margin-top 12.8px
+    transition 200ms ease-in-out transform
+    &:hover
+        background-color $main
+        color $outlineButtonHoverTextColor
+        transform scale(1.05)
+    &:active
+        transform scale(.98)
+
+.grid
+    display flex
+    .col, [class^='col-'], [class*=" col-"]
+        margin-left 4%
+    :first-child
+        margin-left 0
+    .col, .col-1
+        flex 1
+    .col-2
+        flex 2
+    .col-3
+        flex 3
+    .col-4
+        flex 4
+    .col-5
+        flex 5
+    .col-6
+        flex 6
+    .col-7
+        flex 7
+    .col-8
+        flex 8
+    .col-9
+        flex 9
+    .col-10
+        flex 10
+    .col-11
+        flex 11
+    .col-12
+        flex 12
+        
+@media screen and (max-width: 750px)
+    .grid
+        display block
+    .col, [class^='col-'], [class*=" col-"]
+        margin-left 0 !important
+        
+input, textarea
+    width 100%
+    padding 10px 10px
+    margin-top .3rem
+    background $inputBackground
+    border-radius 5px
+    border 1px solid $inputBorder
+    font-size 1rem
+    box-sizing border-box
+    transition all .2s ease-in-out
+    outline none
+    &:hover
+        border 1px solid $inputHoverBorder
+    &:focus
+        border 1px solid $inputActiveBorder
+    
+.sans
+    font-family $sans
+    
+.serif
+    font-family $serif
+
+.mono, pre, code
+    font-family $mono
+    
+.full-width
+    width 100%
+
+.no-padding
+    padding 0 !important
+    
+.no-margin
+    margin 0 !important
+    
+header
+    background-color $main
+    padding 10px 15px 13px
+    display flex
+    .logo
+        flex 1
+        color white
+        font-family $sans
+    .links
+        flex 1
+        color white
+        font-family $sans
+        ul
+            display flex
+            list-style-type none
+            justify-content flex-end
+            li
+                margin-left 10px
+                flex-flow row nowrap
+                &:last-child
+                    margin-right 15px
+                a
+                    color $headerLinkColor
+                    &:hover
+                        color $headerLinkHoverColor
+                        
+.container
+    max-width 860px
+    margin 2rem auto
+    padding 0 2rem
+
+footer
+    background-color #eaeaea
+    padding 10px 15px 13px
+    display flex
+    .copy
+        flex 1
+        color $main
+        font-family $sans
+    .social
+        flex 1
+        color $main
+        font-family $sans
+        ul
+            display flex
+            list-style-type none
+            justify-content flex-end
+            li
+                margin-left 10px
+                flex-flow row nowrap
+                &:last-child
+                    margin-right 15px
+            a
+                color $linkMainColor
+                &:hover
+                    color $linkHoverColor
+
+@media (max-width: 975px)
+    footer
+        .social
+            ul
+                display block
+                text-align right
+                li:last-child
+                    margin 0
+    

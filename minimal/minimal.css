@@ -1,0 +1,280 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #fafafa;
+  font-family: "aktiv-grotesk";
+  font-size: 1rem;
+  color: #000;
+}
+h1,
+.h1 {
+  font-family: "aktiv-grotesk";
+  padding-top: 12.8px;
+  font-size: 3rem;
+  font-weight: 700;
+}
+h2,
+.h2 {
+  font-family: "aktiv-grotesk";
+  padding-top: 12.8px;
+  font-size: 2.5rem;
+}
+h3,
+.h3 {
+  font-family: "aktiv-grotesk";
+  padding-top: 12.8px;
+  font-size: 2rem;
+}
+h4,
+.h4 {
+  font-family: "aktiv-grotesk";
+  padding-top: 0.75rem;
+  font-size: 1.5rem;
+}
+h5,
+.h5 {
+  font-family: "aktiv-grotesk";
+  padding-top: 0.5rem;
+  font-size: 1.25rem;
+}
+h6,
+.h6 {
+  font-family: "aktiv-grotesk";
+  padding-top: 0.3rem;
+  font-size: 1rem;
+}
+p,
+.p {
+  font-family: "aktiv-grotesk";
+  font-weight: 300;
+  padding-top: 0.3rem;
+  font-size: 1rem;
+}
+ul {
+  margin-left: 3rem;
+}
+a {
+  color: #2b2937;
+  font-family: "aktiv-grotesk";
+  transition: 300ms color ease-in-out;
+}
+a:hover {
+  color: #a4cdfc;
+}
+button {
+  font-family: "aktiv-grotesk";
+  padding: 5px 20px;
+  border: 1px solid #2b2937;
+  background-color: #2b2937;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 12.8px;
+  transition: 200ms ease-in-out transform;
+}
+button:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+button:active {
+  transform: scale(0.98);
+}
+button.outline {
+  padding: 5px 20px;
+  border: 1px solid $outlineButtonBorderColor;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 12.8px;
+  transition: 200ms ease-in-out transform;
+}
+button.outline:hover {
+  background-color: #2b2937;
+  color: #fff;
+  transform: scale(1.05);
+}
+button.outline:active {
+  transform: scale(0.98);
+}
+.grid {
+  display: flex;
+}
+.grid .col,
+.grid [class^='col-'],
+.grid [class*=" col-"] {
+  margin-left: 4%;
+}
+.grid :first-child {
+  margin-left: 0;
+}
+.grid .col,
+.grid .col-1 {
+  flex: 1;
+}
+.grid .col-2 {
+  flex: 2;
+}
+.grid .col-3 {
+  flex: 3;
+}
+.grid .col-4 {
+  flex: 4;
+}
+.grid .col-5 {
+  flex: 5;
+}
+.grid .col-6 {
+  flex: 6;
+}
+.grid .col-7 {
+  flex: 7;
+}
+.grid .col-8 {
+  flex: 8;
+}
+.grid .col-9 {
+  flex: 9;
+}
+.grid .col-10 {
+  flex: 10;
+}
+.grid .col-11 {
+  flex: 11;
+}
+.grid .col-12 {
+  flex: 12;
+}
+@media screen and (max-width: 750px) {
+  .grid {
+    display: block;
+  }
+  .col,
+  [class^='col-'],
+  [class*=" col-"] {
+    margin-left: 0 !important;
+  }
+}
+input,
+textarea {
+  width: 100%;
+  padding: 10px 10px;
+  margin-top: 0.3rem;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+input:hover,
+textarea:hover {
+  border: 1px solid #2b2937;
+}
+input:focus,
+textarea:focus {
+  border: 1px solid #a4cdfc;
+}
+.sans {
+  font-family: "aktiv-grotesk";
+}
+.serif {
+  font-family: "freight-text-pro";
+}
+.mono,
+pre,
+code {
+  font-family: "Apercu Mono";
+}
+.full-width {
+  width: 100%;
+}
+.no-padding {
+  padding: 0 !important;
+}
+.no-margin {
+  margin: 0 !important;
+}
+header {
+  background-color: #2b2937;
+  padding: 10px 15px 13px;
+  display: flex;
+}
+header .logo {
+  flex: 1;
+  color: #fff;
+  font-family: "aktiv-grotesk";
+}
+header .links {
+  flex: 1;
+  color: #fff;
+  font-family: "aktiv-grotesk";
+}
+header .links ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-end;
+}
+header .links ul li {
+  margin-left: 10px;
+  flex-flow: row nowrap;
+}
+header .links ul li:last-child {
+  margin-right: 15px;
+}
+header .links ul li a {
+  color: #fff;
+}
+header .links ul li a:hover {
+  color: #a4cdfc;
+}
+.container {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+footer {
+  background-color: #eaeaea;
+  padding: 10px 15px 13px;
+  display: flex;
+}
+footer .copy {
+  flex: 1;
+  color: #2b2937;
+  font-family: "aktiv-grotesk";
+}
+footer .social {
+  flex: 1;
+  color: #2b2937;
+  font-family: "aktiv-grotesk";
+}
+footer .social ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-end;
+}
+footer .social ul li {
+  margin-left: 10px;
+  flex-flow: row nowrap;
+}
+footer .social ul li:last-child {
+  margin-right: 15px;
+}
+footer .social ul a {
+  color: #2b2937;
+}
+footer .social ul a:hover {
+  color: #a4cdfc;
+}
+@media (max-width: 975px) {
+  footer .social ul {
+    display: block;
+    text-align: right;
+  }
+  footer .social ul li:last-child {
+    margin: 0;
+  }
+}
