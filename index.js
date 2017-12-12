@@ -36,7 +36,7 @@ if (cmd === "o" || cmd === "open") {
         console.log("Docs for Tild is located at " + chalk.white.bgBlue("docs.tild.ga"));
         open("http://docs.tild.ga/?ref=cli")
     }
-    if (type === "site" || type === "website") {
+    if (type === "site" || type === "website" || type === "s") {
         console.log("Tild's main website is " + chalk.white.bgBlue("tild.ga"))
         open("https://tild.ga/?ref=cli")
     }
