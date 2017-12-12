@@ -22,7 +22,10 @@
     "tild": "./index.js"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "commander": "^2.12.2",
-    "open": "0.0.5",
+    "download": "^6.2.5",
+    "fs": "0.0.1-security",
+    "open": "0.0.5"
   }
 }
