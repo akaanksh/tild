@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Tild CSS Demo</title>
-    <link rel="stylesheet" href="https://use.typekit.net/hqo3gsg.css?v=2">
+    <title>Tild Minimal CSS Demo</title>
     <link rel="stylesheet" href="minimal.css">
 </head>
 
 <body>
     <header>
-        <div class="logo">Akaanksh's Blog</div>
+        <div class="logo">Tild Minimal</div>
         <div class="links">
             <ul>
-                <li><a href="../posts/about-me.html">About Me</a></li>
-                <li><a href="../posts/portfolio.html">Portfolio</a></li>
+                <li><a href="#">Tild PRO</a></li>
+                <li><a href="#">Tild Utility First</a></li>
             </ul>
         </div>
     </header>
@@ -33,6 +33,7 @@
         <br>
         <h1>What is Lorem Ipsum?</h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p>Anatha one</p>
         <h1>Buttons</h1>
         <button>Default</button><br>
         <button class="outline">Outline</button>
@@ -51,17 +52,80 @@
             <div class="col"><p>Email</p><input type="email" placeholder="john@doe.com"></div>
         </div>
             <p>Message</p><textarea placeholder="Send a message"></textarea>
+        <h1>Lists</h1>
+        <ul>
+            <li>This</li>
+            <li>is</li>
+            <li>a</li>
+            <li>unordered</li>
+            <li>list</li>
+        </ul>
+        <ol>
+            <li>This</li>
+            <li>is</li>
+            <li>a</li>
+            <li>numbered/ordered</li>
+            <li>list</li>
+        </ol>
+        
+        <h1>Tables</h1>
+        <table>
+            <tr>
+                <th>Project</th>
+                <th>Status</th>
+                <th>GitHub Repo</th>
+            </tr>
+            <tr>
+                <td>Tild Minimal</td>
+                <td>In Progress</td>
+                <td><a href="https://github.com/akaanksh/tild/tree/master/minimal">Click here</a></td>
+            </tr>
+            <tr>
+                <td>Tild Pro</td>
+                <td>In Progress</td>
+                <td><a href="https://github.com/akaanksh/tild/tree/master/pro">Click here</a></td>
+            </tr>
+            <tr>
+                <td>Tild Utility-First</td>
+                <td>Coming Soon</td>
+                <td>Coming Soon</td>
+            </tr>
+        </table>
+        
+        <h1>Code</h1>
+        <p>This is what <code>inline code</code> looks like</p>
+        <p>This is block code:</p>
+        <pre><code>&#x3C;footer&#x3E;
+    &#x3C;div class=&#x22;copy&#x22;&#x3E;&#x26;copy; Akaanksh Raj&#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;social&#x22;&#x3E;
+        &#x3C;ul&#x3E;
+            &#x3C;li&#x3E;&#x3C;a href=&#x22;https://github.com/akaanksh/tild&#x22;&#x3E;GitHub&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+            &#x3C;li&#x3E;&#x3C;a href=&#x22;https://twitter.com/akaankshr4j&#x22;&#x3E;Twitter&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+            &#x3C;li&#x3E;&#x3C;a href=&#x22;https://instagram.com/akaanksh/tild/tree/master/LICENSE&#x22;&#x3E;License&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+        &#x3C;/ul&#x3E;
+    &#x3C;/div&#x3E;
+&#x3C;/footer&#x3E;</code></pre>
+        <p>Tild Minimal does not include Code Highlighting; optionally, you can convert you code so that highlights occur using <a href="code.html">this page</a>. If you choose to do this, it would look something like this:</p>
+        <pre><code><span class="method">&lt;footer</span><span class="method">&gt;</span>
+    <span class="method">&lt;div</span> <span class="global">class</span>=<span undefined="">"copy"</span><span class="method">&gt;</span>&amp;copy; Akaanksh Raj<span class="method">&lt;/div</span><span class="method">&gt;</span>
+    <span class="method">&lt;div</span> <span class="global">class</span>=<span undefined="">"social"</span><span class="method">&gt;</span>
+        <span class="method">&lt;ul</span><span class="method">&gt;</span>
+            <span class="method">&lt;li</span><span class="method">&gt;</span><span class="method">&lt;a</span> <span class="global">href</span>=<span undefined="">"https://github.com/akaanksh/tild"</span><span class="method">&gt;</span>GitHub<span class="method">&lt;/a</span><span class="method">&gt;</span><span class="method">&lt;/li</span><span class="method">&gt;</span>
+            <span class="method">&lt;li</span><span class="method">&gt;</span><span class="method">&lt;a</span> <span class="global">href</span>=<span undefined="">"https://twitter.com/akaankshr4j"</span><span class="method">&gt;</span>Twitter<span class="method">&lt;/a</span><span class="method">&gt;</span><span class="method">&lt;/li</span><span class="method">&gt;</span>
+            <span class="method">&lt;li</span><span class="method">&gt;</span><span class="method">&lt;a</span> <span class="global">href</span>=<span undefined="">"https://instagram.com/akaanksh/tild/tree/master/LICENSE"</span><span class="method">&gt;</span>License<span class="method">&lt;/a</span><span class="method">&gt;</span><span class="method">&lt;/li</span><span class="method">&gt;</span>
+        <span class="method">&lt;/ul</span><span class="method">&gt;</span>
+    <span class="method">&lt;/div</span><span class="method">&gt;</span>
+<span class="method">&lt;/footer</span><span class="method">&gt;</span>
+</code></pre>
     </div>
     
     <footer>
         <div class="copy">&copy; Akaanksh Raj</div>
         <div class="social">
             <ul>
-                <li><a href="https://akaanksh.ga/">Main Website</a></li>
-                <li>or find me on:</li>
-                <li><a href="https://github.com/akaanksh">GitHub</a></li>
+                <li><a href="https://github.com/akaanksh/tild">GitHub</a></li>
                 <li><a href="https://twitter.com/akaankshr4j">Twitter</a></li>
-                <li><a href="https://instagram.com/akaankshr4j">Instagram</a></li>
+                <li><a href="https://instagram.com/akaanksh/tild/tree/master/LICENSE">License</a></li>
             </ul>
         </div>
     </footer>

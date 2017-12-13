@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script src="code.js"></script>
+    <script src="he.js"></script>
+    <link rel="stylesheet" href="minimal.css">
+    
+    <script type="text/javascript">
+        function render() {
+            var lang = document.getElementById('lang').value;
+            var input = document.getElementById('input').value;
+            var output = document.getElementById('output');
+            var render = document.getElementById('render');
+            
+            var input = he.encode(input);
+            output.className = '';
+            output.className = 'language-' + lang;
+            output.innerHTML = input;
+            Prism.highlightAll();
+            
+            render.innerHTML = document.getElementById('outputOuter').innerHTML;
+            document.getElementById('success').style.display = 'inline';
+            setTimeout(function () {
+                document.getElementById('success').style.display = 'none';
+            }, 3000)
+        }
+    </script>
+</head>
+<body class="container">
+    <h3>Render Code Highlighter for Tild Minimal:</h3>
+    <form onsubmit="render();return false">
+        <p>Enter Language: (<a href="http://prismjs.com/download.html#category-languages" target="_blank">View all available languages</a>)</p>
+        <input required spellcheck="false" type="text" placeholder="JS, HTML, CSS etc..." id="lang">
+        <p>Enter Code:</p>
+        <textarea required spellcheck="false" id="input" placeholder="console.log('Hello World');"/></textarea>
+        <button type="submit">Render Code</button><span class="p" id="success" style="padding-left:10px;display:none;">Rendered Successfully</span>
+    </form>
+    <p>Rendered Code:</p>
+    <textarea id="render"></textarea>
+    <p>Code Highlighter Preview:</p>
+    <div id="outputOuter">
+        <pre><code id="output" class="language-js">console.log('Hello World);</code></pre>
+    </div>
+</body>
+</html>
