@@ -10,41 +10,70 @@
     <script src="he.js"></script>
     <link rel="stylesheet" href="minimal.css">
     
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
     <script type="text/javascript">
         function render() {
-            var lang = document.getElementById('lang').value;
-            var input = document.getElementById('input').value;
-            var output = document.getElementById('output');
-            var render = document.getElementById('render');
+            document.getElementById('click2Render').className = 'inline-loader';
             
-            var input = he.encode(input);
-            output.className = '';
-            output.className = 'language-' + lang;
-            output.innerHTML = input;
-            Prism.highlightAll();
-            
-            render.innerHTML = document.getElementById('outputOuter').innerHTML;
-            document.getElementById('success').style.display = 'inline';
             setTimeout(function () {
-                document.getElementById('success').style.display = 'none';
-            }, 3000)
+                var lang = document.getElementById('lang').value;
+                var input = document.getElementById('input').value;
+                var output = document.getElementsByTagName('code')[0];
+                var render = document.getElementById('render');
+                var input = he.encode(input);
+                output.className = '';
+                output.className = 'language-' + lang;
+                output.innerHTML = input;
+                Prism.highlightAll();
+                output.removeAttribute('class');
+                output.removeAttribute('id');
+                document.getElementsByTagName('pre')[0].removeAttribute('class')
+                
+                render.value = document.getElementById('outputOuter').innerHTML;
+                document.getElementById('renderSuccess').style.display = 'inline';
+                setTimeout(function () {
+                    document.getElementById('renderSuccess').style.display = 'none';
+                }, 5000);
+                
+                document.getElementById('copy').removeAttribute('disabled')
+                
+                var clipboard = new Clipboard('#copy');
+                clipboard.on('success', function(e) {
+                    document.getElementById('copyStatus').style.display = 'inline';
+                    document.getElementById('copyStatus').innerText = 'Copied Successfully';
+                    setTimeout(function () {
+                        document.getElementById('copyStatus').style.display = 'none';
+                    }, 3000)
+                
+                    e.clearSelection();
+                });
+                
+                clipboard.on('error', function(e) {
+                    document.getElementById('copyStatus').style.display = 'inline';
+                    document.getElementById('copyStatus').innerText = 'Copying Failed';
+                    setTimeout(function () {
+                        document.getElementById('copyStatus').style.display = 'none';
+                    }, 3000)
+                });
+                document.getElementById('click2Render').removeAttribute('class');
+            }, 100)
         }
     </script>
 </head>
 <body class="container">
-    <h3>Render Code Highlighter for Tild Minimal:</h3>
+    <h3>Code Highlighter for Tild Minimal</h3>
+    <p><em>Can be slow when rendering a big file.</em> This tool uses <a href="http://prismjs.com">PrismJS</a> to convert to spans and classes and <a href="https://github.com/mathiasbynens/he">he</a> to convert code to HTML entities. View all available languages by <a href="http://prismjs.com/download.html#category-languages" target="_blank">clicking here</a>.</p>
     <form onsubmit="render();return false">
-        <p>Enter Language: (<a href="http://prismjs.com/download.html#category-languages" target="_blank">View all available languages</a>)</p>
-        <input required spellcheck="false" type="text" placeholder="JS, HTML, CSS etc..." id="lang">
+        <p>Enter Language:</p>
+        <input class="mono" required spellcheck="false" type="text" placeholder="JS" id="lang">
         <p>Enter Code:</p>
-        <textarea required spellcheck="false" id="input" placeholder="console.log('Hello World');"/></textarea>
-        <button type="submit">Render Code</button><span class="p" id="success" style="padding-left:10px;display:none;">Rendered Successfully</span>
+        <textarea class="mono" required spellcheck="false" id="input" placeholder='console.log("Hello World");'/></textarea>
+        <button type="submit" id="click2Render">Render Code</button><span class="p" id="renderSuccess" style="padding-left:10px;display:none;">Rendered Successfully</span>
     </form>
     <p>Rendered Code:</p>
-    <textarea id="render"></textarea>
+    <textarea class="mono" spellcheck="false" id="render" placeholder='<pre><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>'></textarea>
+    <button class="outline" id="copy" disabled data-clipboard-target="#render">Copy Rendered Code</button><span class="p" id="copyStatus" style="padding-left:10px;display:none;">Copy Status</span>
     <p>Code Highlighter Preview:</p>
-    <div id="outputOuter">
-        <pre><code id="output" class="language-js">console.log('Hello World);</code></pre>
-    </div>
+    <div id="outputOuter"><pre><code id="output" class="language-js">console.log("Hello World");</code></pre></div>
 </body>
 </html>

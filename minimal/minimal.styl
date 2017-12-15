@@ -1,21 +1,23 @@
-@import "https://use.typekit.net/hqo3gsg.css" // Import Fonts Here
+@import "https://use.typekit.net/kky2abx.css" // Import Fonts Here
 
-$serif = "freight-text-pro" // Set Serif Font
-$mono = monospace // Set Mono Font
-$sans = "aktiv-grotesk" // Set Sans Serif Font
+$serif = "Sofia-Pro" // Set Serif Font
+$mono = "inconsolata" // Set Mono Font
+$sans = "Sofia-Pro" // Set Sans Serif Font
 
 $main = #2b2937 // Set Main Color
 $secondary = white
 $tertiary = #A4CDFC
 $textColor = black
 $backgroundColor = #fafafa // Set Background Color for <body>
+$selectionTextColor = white
+$selectionBackgroundColor = $tertiary
 
-$h1FontWeight = bold
-$h2FontWeight = bold
-$h3FontWeight = bold
-$h4FontWeight = bold
-$h5FontWeight = bold
-$h6FontWeight = bold
+$h1FontWeight = 800
+$h2FontWeight = 700
+$h3FontWeight = 600
+$h4FontWeight = 500
+$h5FontWeight = 500
+$h6FontWeight = 500
 $pFontWeight = 300
 $bodyFontWeight = $pFontWeight
 
@@ -33,6 +35,7 @@ $footerTextColor = black
 $normalButtonTextColor = $secondary
 $normalButtonHoverTextColor = white
 $outlineButtonTextColor = black
+$outlineButtonBorderColor = $main
 $outlineButtonHoverTextColor = white
 $buttonFontFamily = $sans
 
@@ -46,6 +49,23 @@ $tableBorder = $main
 
 $preBackgroundColor = #eaeaea
 
+$loaderBackgroundColor = rgba(0, 0, 0, .3)
+$loaderSpinnerColor = $main
+$fullPageLoaderBackgroundColor = #fafafa
+$fullPageLoaderSpinnerBackgroundColor = $loaderBackgroundColor
+$fullPageLoaderSpinnerColor = $loaderSpinnerColor
+$fullPageLoaderSize = 100px
+$inlineLoaderBackgroundColor = rgba(0, 0, 0, .3)
+$inlineLoaderSpinnerColor = $main
+$outlineButtonInlineLoaderBackgroundColor = rgba(0, 0, 0, .3)
+$outlineButtonInlineLoaderSpinnerColor = $main
+$buttonInlineLoaderBackgroundColor = rgba(255, 255, 255, .5)
+$buttonInlineLoaderSpinnerColor = rgb(255, 255, 255)
+$hoverOutlineButtonInlineLoaderBackgroundColor = $buttonInlineLoaderBackgroundColor
+$hoverOutlineButtonInlineLoaderSpinnerColor = $buttonInlineLoaderSpinnerColor
+$hoverButtonInlineLoaderBackgroundColor = $buttonInlineLoaderBackgroundColor
+$hoverButtonInlineLoaderBackgroundColor = $buttonInlineLoaderSpinnerColor
+
 *
     padding 0
     margin 0
@@ -56,13 +76,20 @@ body
     font-size 1rem
     color $textColor
     font-weight 300
+
+::selection
+    color $selectionTextColor
+    background-color $selectionBackgroundColor
+    
+::moz-selection
+    color $selectionTextColor
+    background-color $selectionBackgroundColor
     
 h1, .h1
     font-family $sans
     font-weight $h1FontWeight
     padding-top 12.8px
     font-size 3rem
-    font-weight 700
     
 h2, .h2
     font-family $sans
@@ -113,6 +140,7 @@ a
         
 button
     font-family $buttonFontFamily
+    font-size 1rem
     padding 5px 20px
     border 1px solid $main
     background-color $main
@@ -121,6 +149,11 @@ button
     border-radius 5px
     margin-top 12.8px
     transition 200ms ease-in-out transform
+    &:disabled
+        cursor not-allowed !important
+        &:hover
+            transform none
+            color $normalButtonTextColor
     &:hover
         transform scale(1.05)
         color $normalButtonHoverTextColor
@@ -136,12 +169,23 @@ button.outline
     border-radius 5px
     margin-top 12.8px
     transition 200ms ease-in-out transform
+    &:disabled
+        cursor not-allowed !important
+        &:hover
+            transform none
+            color $outlineButtonTextColor
+            background-color transparent
     &:hover
         background-color $main
         color $outlineButtonHoverTextColor
         transform scale(1.05)
     &:active
         transform scale(.98)
+        
+button.outline:hover.inline-loader:before
+    border 3px solid $hoverOutlineButtonInlineLoaderBackgroundColor
+    border-top 3px solid $hoverOutlineButtonInlineLoaderSpinnerColor
+    
 
 .grid
     display flex
@@ -196,9 +240,13 @@ input, textarea
         border 1px solid $inputHoverBorder
     &:focus
         border 1px solid $inputActiveBorder
+    &:read-only
+        cursor not-allowed
+        border 1px solid $inputBorder
         
-textarea, input[type="textarea"]
+textarea
     height 120px
+    resize vertical
     
 .sans
     font-family $sans
@@ -223,6 +271,9 @@ pre
     padding 10px 15px
     border-radius 5px
     margin-top .8rem
+    overflow auto
+    white-space pre
+    word-wrap normal
     code
         padding 0
 
@@ -297,7 +348,110 @@ table
         border 1px solid $tableBorder
         text-align left
         padding 8px
+
+.loader
+    border 3px solid $loaderBackgroundColor
+    border-top 3px solid $loaderSpinnerColor
+    border-radius 100%
+    width 40px
+    height 40px
+    animation spin 1s linear infinite
     
+.full-page
+    position absolute
+    z-index 9999
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    height 100%
+    background $fullPageLoaderBackgroundColor
+    div
+        .loader
+            border 3px solid $fullPageLoaderSpinnerBackgroundColor
+            border-top 3px solid $fullPageLoaderSpinnerColor
+            border-radius 100%
+            width $fullPageLoaderSize
+            height $fullPageLoaderSize
+            animation spin 1s linear infinite
+            text-align center
+            flex-flow row wrap
+            max-width 100%
+            margin 0 auto
+        h1, h2, h3, h4, h5, h6, p
+            padding 0
+            max-width 560px
+            padding 0 2rem
+            margin 10px auto 0 auto
+            text-align center
+    
+.inline-loader
+    display inline-block
+    
+.inline-loader:before
+    content ''
+    border 3px solid $inlineLoaderBackgroundColor
+    border-top 3px solid $inlineLoaderSpinnerColor
+    margin-right 8px
+    border-radius 100%
+    width 1rem
+    height 1rem
+    animation spin 1s linear infinite
+    display inline-block
+    vertical-align text-bottom
+
+button.outline.inline-loader:before
+    border 3px solid $outlineButtonInlineLoaderBackgroundColor
+    border-top 3px solid $outlineButtonInlineLoaderSpinnerColor
+    
+button.inline-loader:before
+    border 3px solid $buttonInlineLoaderBackgroundColor
+    border-top 3px solid $buttonInlineLoaderSpinnerColor
+    &:hover
+        border 3px solid $hoverButtonInlineLoaderBackgroundColor
+        border-top 3px solid $hoverHuttonInlineLoaderSpinnerColor
+    
+h1.inline-loader:before
+    width 3rem
+    height 3rem
+    
+h2.inline-loader:before
+    width 2.5rem
+    height 2.5rem
+    
+h3.inline-loader:before
+    width 2rem
+    height 2rem
+    
+h4.inline-loader:before
+    width 1.5rem
+    height 1.5rem
+    
+h5.inline-loader:before
+    width 1.25rem
+    height 1.25rem
+    
+h6.inline-loader:before
+    width 1rem
+    height 1rem
+  
+p.inline-loader:before
+    width 1rem
+    height 1rem
+    
+body > .inline-loader:before
+    width 1rem
+    height 1rem
+      
+@keyframes spin
+    0%
+        transform rotate(0deg)
+    100%
+        transform rotate(360deg)
+        
+.display-none
+    display none
+
 header
     background-color $headerBackgroundColor
     color $headerTextColor
@@ -367,4 +521,3 @@ footer
                 text-align right
                 li:last-child
                     margin 0
-    
