@@ -7,7 +7,7 @@ const download = require('download');
  
 program
     .usage("tild <cmd> [type] [options]")
-    .version('0.1.0')
+    .version('0.0.1-a.3')
     .arguments('<cmdVal> [typeVal] [dirVal]')
     .action(function (cmdVal, typeVal, dirVal) {
         cmd = cmdVal;
@@ -26,7 +26,7 @@ if (cmd === "o" || cmd === "open") {
     if (typeof type === "undefined") {
         console.error(chalk.white.bgRed(' No link argument specified '));
         console.error('Following options are available:');
-        console.log("   tild o d ― Opens Tild's documentaion")
+        console.log("   tild o d ― Opens Tild's documentation")
         console.log("   tild o s ― Opens Tild's Website")
         console.log("   tild o m ― Opens Tild Minimal's Landing Page")
         console.log("   tild o p ― Opens Tild Pro's Landing Page")
