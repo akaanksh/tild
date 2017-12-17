@@ -7,7 +7,7 @@ const download = require('download');
  
 program
     .usage("tild <cmd> [type] [options]")
-    .version('0.0.1-a.3')
+    .version('0.0.1-a.4')
     .arguments('<cmdVal> [typeVal] [dirVal]')
     .action(function (cmdVal, typeVal, dirVal) {
         cmd = cmdVal;
@@ -28,7 +28,7 @@ if (cmd === "o" || cmd === "open") {
         console.error('Following options are available:');
         console.log("   tild o d ― Opens Tild's documentation")
         console.log("   tild o s ― Opens Tild's Website")
-        console.log("   tild o m ― Opens Tild Minimal's Landing Page")
+        console.log("   tild o q ― Opens Tild Quick's Landing Page")
         console.log("   tild o p ― Opens Tild Pro's Landing Page")
         console.log("   tild o c ― Opens Tild's CDN Links Page")
     }
@@ -40,9 +40,9 @@ if (cmd === "o" || cmd === "open") {
         console.log("Tild's main website is " + chalk.white.bgBlue("tild.ga"))
         open("https://tild.ga/?ref=cli")
     }
-    if (type === "m" || type === "minimal") {
-        console.log("The landing page for Tild's Minimal Version is at " + chalk.white.bgBlue("tild.ga/m"))
-        open("https://tild.ga/m?ref=cli")
+    if (type === "q" || type === "quick") {
+        console.log("The landing page for Tild's Quick Version is at " + chalk.white.bgBlue("tild.ga/m"))
+        open("https://tild.ga/q?ref=cli")
     }
     if (type === "p" || type === "pro") {
         console.log("The landing page for Tild's Pro Version is at " + chalk.white.bgBlue("tild.ga/pro"))
@@ -50,7 +50,7 @@ if (cmd === "o" || cmd === "open") {
     }
     if (type === "c" || type === "cdn") {
         console.log("Tild's CDN Links page is at " + chalk.white.bgBlue("tild.ga/cdn-list"))
-        open("https://tild.ga/cdn-list?ref=cli")
+        open("https://tild-cdn.akaanksh.ga/quick/index.html?ref=cli")
     }
 }
 
@@ -60,17 +60,17 @@ if (cmd === 'g' || cmd === 'generate') {
         console.error('Following options are available:');
         console.log("   tild g m [directory] ― Generates Tild Minimal's CSS & Stylus files in [directory]")
     }
-    if (type === 'm' || type === 'minimal') {
+    if (type === 'q' || type === 'quick') {
         if (typeof dir === "undefined") {
-            download('https://akaanksh.github.io/tild/minimal/minimal.css', '/');
-            download('https://akaanksh.github.io/tild/minimal/minimal.styl', '/').then(() => {
-                console.log('Minimal version of Tild was put in ' + chalk.white.bgBlue(dir));
+            download('https://tild-cdn.akaanksh.ga/quick/quick.css', '/');
+            download('https://tild-cdn.akaanksh.ga/quick/quick.styl', '/').then(() => {
+                console.log('Quick version of Tild was put in ' + chalk.white.bgBlue('/'));
             });
         }
         else {
-            download('https://akaanksh.github.io/tild/minimal/minimal.css', dir);
-            download('https://akaanksh.github.io/tild/minimal/minimal.styl', dir).then(() => {
-                console.log('Minimal version of Tild was put in ' + chalk.white.bgBlue(dir));
+            download('https://tild-cdn.akaanksh.ga/quick/quick.css', dir);
+            download('https://tild-cdn.akaanksh.ga/quick/quick.styl', dir).then(() => {
+                console.log('Quick version of Tild was put in ' + chalk.white.bgBlue(dir));
             });
         }
     }
