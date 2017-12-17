@@ -87,7 +87,7 @@ button {
   padding: 5px 20px;
   border: 1px solid #265976;
   background-color: #265976;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 12.8px;
@@ -98,11 +98,11 @@ button:disabled {
 }
 button:disabled:hover {
   transform: none;
-  color: #000;
+  color: #fff;
 }
 button:hover {
   transform: scale(1.05);
-  color: #000;
+  color: #fff;
 }
 button:active {
   transform: scale(0.98);
@@ -127,7 +127,7 @@ button.outline:disabled:hover {
 }
 button.outline:hover {
   background-color: #265976;
-  color: #000;
+  color: #fff;
   transform: scale(1.05);
 }
 button.outline:active {
