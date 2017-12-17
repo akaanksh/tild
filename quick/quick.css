@@ -84,13 +84,13 @@ a:hover {
 button {
   font-family: "Sofia-Pro";
   font-size: 1rem;
-  padding: 5px 20px;
+  padding: 7px 30px;
   border: 1px solid #265976;
   background-color: #265976;
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 12.8px;
+  margin-top: 0.8rem;
   transition: 200ms ease-in-out transform;
 }
 button:disabled {
@@ -226,8 +226,8 @@ input,
 textarea {
   font-family: "Sofia-Pro";
   width: 100%;
-  padding: 10px 10px;
-  margin-top: 0.3rem;
+  padding: 7px 10px;
+  margin-top: 0.8rem;
   background: #fff;
   border-radius: 5px;
   border: 1px solid #eaeaea;
