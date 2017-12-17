@@ -1,4 +1,4 @@
-window.onload = setTimeout(function () { document.getElementById('actual-loader').style.display = 'none'}, 1000);
+window.onload = setTimeout(function () { document.getElementById('actual-loader').style.display = 'none'}, 0000);
 
 var funnies = [
     "Generating witty dialog...",

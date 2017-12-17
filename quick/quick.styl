@@ -4,13 +4,18 @@ $serif = "Sofia-Pro" // Set Serif Font
 $mono = "inconsolata" // Set Mono Font
 $sans = "Sofia-Pro" // Set Sans Serif Font
 
-$main = #2b2937 // Set Main Color
-$secondary = white
-$tertiary = #A4CDFC
+$main = #265976 // Set Main Color
+$secondary = #15ace3
+$tertiary = white
+
 $textColor = black
 $backgroundColor = #fafafa // Set Background Color for <body>
 $selectionTextColor = white
-$selectionBackgroundColor = $tertiary
+$selectionBackgroundColor = $main
+
+$bannerTextColor = white
+$bannerBackgroundColor = $main
+$bannerHeight = 80vh
 
 $h1FontWeight = 800
 $h2FontWeight = 700
@@ -23,29 +28,36 @@ $bodyFontWeight = $pFontWeight
 
 $linkFontFamily = $sans
 $linkMainColor = $main
-$linkHoverColor = $tertiary
+$linkHoverColor = $secondary
 
 $headerLinkColor = $secondary
 $headerBackgroundColor = $main
 $headerTextColor = white
 $headerLinkHoverColor = $tertiary
 $footerBackgroundColor = #eaeaea
-$footerTextColor = black
+$footerTextColor = $textColor
 
-$normalButtonTextColor = $secondary
-$normalButtonHoverTextColor = white
-$outlineButtonTextColor = black
+$normalButtonTextColor = $textColor
+$normalButtonHoverTextColor = $textColor
+$normalButtonBackgroundColor = $main
+$normalButtonBorderColor = $main
+$outlineButtonTextColor = $textColor
 $outlineButtonBorderColor = $main
-$outlineButtonHoverTextColor = white
+$outlineButtonHoverTextColor = $textColor
+$outlineButtonHoverBackgroundColor = $main
+$invertedButtonBorderColor = $secondary
+$invertedButtonTextColor = $secondary
+$invertedButtonHoverTextColor = $tertiary
+$invertedButtonHoverBackgroundColor = $secondary
 $buttonFontFamily = $sans
 
 $inputFontFamily = $sans
 $inputBackground = white
 $inputBorder = #eaeaea
 $inputHoverBorder = $main
-$inputActiveBorder = $tertiary
+$inputActiveBorder = $secondary
 
-$tableBorder = $main
+$tableBorder = grey
 
 $preBackgroundColor = #eaeaea
 
@@ -65,6 +77,8 @@ $hoverOutlineButtonInlineLoaderBackgroundColor = $buttonInlineLoaderBackgroundCo
 $hoverOutlineButtonInlineLoaderSpinnerColor = $buttonInlineLoaderSpinnerColor
 $hoverButtonInlineLoaderBackgroundColor = $buttonInlineLoaderBackgroundColor
 $hoverButtonInlineLoaderBackgroundColor = $buttonInlineLoaderSpinnerColor
+$invertedButtonInlineLoaderBackgroundColor = $loaderBackgroundColor
+$invertedButtonInlineLoaderSpinnerColor = $secondary
 
 *
     padding 0
@@ -76,6 +90,7 @@ body
     font-size 1rem
     color $textColor
     font-weight 300
+    box-sizing border-box
 
 ::selection
     color $selectionTextColor
@@ -142,8 +157,8 @@ button
     font-family $buttonFontFamily
     font-size 1rem
     padding 5px 20px
-    border 1px solid $main
-    background-color $main
+    border 1px solid $normalButtonBorderColor
+    background-color $normalButtonBackgroundColor
     color $normalButtonTextColor
     cursor pointer
     border-radius 5px
@@ -176,16 +191,37 @@ button.outline
             color $outlineButtonTextColor
             background-color transparent
     &:hover
-        background-color $main
+        background-color $outlineButtonHoverBackgroundColor
         color $outlineButtonHoverTextColor
         transform scale(1.05)
     &:active
         transform scale(.98)
         
-button.outline:hover.inline-loader:before
+button.outline:hover.inline-loader:before, button.inverted:hover.inline-loader:before
     border 3px solid $hoverOutlineButtonInlineLoaderBackgroundColor
     border-top 3px solid $hoverOutlineButtonInlineLoaderSpinnerColor
     
+button.inverted
+    padding 5px 20px
+    border 1px solid $invertedButtonBorderColor
+    background-color transparent
+    color $invertedButtonTextColor
+    cursor pointer
+    border-radius 5px
+    margin-top 12.8px
+    transition 200ms ease-in-out transform
+    &:disabled
+        cursor not-allowed !important
+        &:hover
+            transform none
+            color $invertedButtonTextColor
+            background-color transparent
+    &:hover
+        background-color $invertedButtonHoverBackgroundColor
+        color $invertedButtonHoverTextColor
+        transform scale(1.05)
+    &:active
+        transform scale(.98)
 
 .grid
     display flex
@@ -233,7 +269,6 @@ input, textarea
     border-radius 5px
     border 1px solid $inputBorder
     font-size 1rem
-    box-sizing border-box
     transition all .2s ease-in-out
     outline none
     &:hover
@@ -404,6 +439,10 @@ button.outline.inline-loader:before
     border 3px solid $outlineButtonInlineLoaderBackgroundColor
     border-top 3px solid $outlineButtonInlineLoaderSpinnerColor
     
+button.inverted.inline-loader:before
+    border 3px solid $invertedButtonInlineLoaderBackgroundColor
+    border-top 3px solid $invertedButtonInlineLoaderSpinnerColor
+    
 button.inline-loader:before
     border 3px solid $buttonInlineLoaderBackgroundColor
     border-top 3px solid $buttonInlineLoaderSpinnerColor
@@ -451,12 +490,93 @@ body > .inline-loader:before
         
 .display-none
     display none
+    
+.alert
+    width 100%
+    padding 10px 0 10px 8px
+    margin-top 8px
+    display flex
+    border-radius 5px
+    color $textColor
+    a
+        color $textColor
+    &.success
+        background-color #9acd32a1
+        border-left 5px solid green
+        .action
+            text-align right
+            padding-right 15px
+            flex 3
+        .message
+            flex 9
+        a:hover
+            color green
+    &.info
+        background-color paleturquoise
+        border-left 5px solid deepskyblue
+        .action
+            text-align right
+            padding-right 15px
+            flex 3
+        .message
+            flex 9
+        a:hover
+            color deepskyblue
+    &.warning
+        background-color bisque
+        border-left 5px solid coral
+        .action
+            text-align right
+            padding-right 15px
+            flex 3
+        .message
+            flex 9
+        a:hover
+            color coral
+    &.danger, &.fail
+        background-color pink
+        border-left 5px solid red
+        .action
+            text-align right
+            padding-right 15px
+            flex 3
+        .message
+            flex 9
+        a:hover
+            color red
+            
+.banner
+    width 100%
+    height $bannerHeight
+    background $bannerBackgroundColor
+    color $bannerTextColor
+    display flex
+    flex-flow row wrap
+    align-items center
+    box-sizing border-box
+    .left, .right, .center
+        width 100%
+        max-width 800px
+        margin 0 auto
+        padding 0 2rem
+        line-height 1
+    .left
+        text-align left
+    .right
+        text-align right
+    .center
+        text-align center
+            
 
 header
     background-color $headerBackgroundColor
     color $headerTextColor
     padding 10px 15px 13px
     display flex
+    width 100%
+    box-sizing border-box
+    &.fixed
+        position fixed
     .logo
         flex 1
         color white
@@ -470,6 +590,8 @@ header
             display flex
             list-style-type none
             justify-content flex-end
+            height 100%
+            align-items center
             li
                 margin-left 10px
                 flex-flow row nowrap
@@ -492,11 +614,9 @@ footer
     color $footerTextColor
     .copy
         flex 1
-        color $main
         font-family $sans
     .social
         flex 3
-        color $main
         font-family $sans
         ul
             padding 0

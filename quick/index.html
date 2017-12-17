@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Tild Minimal CSS Demo</title>
-    <link rel="stylesheet" href="minimal.css">
+    <title>Tild Quick CSS Demo</title>
+    <link rel="stylesheet" href="quick.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         </div>
     </div>
     <header>
-        <div class="logo">Tild Minimal</div>
+        <div class="logo">Tild Quick</div>
         <div class="links">
             <ul>
                 <li><a href="#">Tild PRO</a></li>
@@ -25,6 +25,18 @@
             </ul>
         </div>
     </header>
+    
+    <div class="banner">
+            <div class="left">
+            <div class="alert warning">
+                <div class="message">Tild Quick is not yet available for mobile</div>
+            </div>
+                <h1>Tild Quick</h1>
+                <p>Easily Customizable, little-to-learn CSS Framework</p>
+                <button class="inverted">Nice! Get it</button>
+            </div>
+        </div>
+    </div>
     
     <div class="container">
         <h1>Typography</h1>
@@ -41,7 +53,8 @@
         <p>Anatha one</p>
         <h1>Buttons</h1>
         <button>Default</button><br>
-        <button class="outline">Outline</button>
+        <button class="outline">Outline</button><br>
+        <button class="inverted">Inverted</button>
         <h1>Grid</h1>
         <div class="grid">
             <div class="col"><p>Equally Split Column</p></div>
@@ -82,9 +95,9 @@
                 <th>GitHub Repo</th>
             </tr>
             <tr>
-                <td>Tild Minimal</td>
+                <td>Tild Quick</td>
                 <td>In Progress</td>
-                <td><a href="https://github.com/akaanksh/tild/tree/master/minimal">Click here</a></td>
+                <td><a href="https://github.com/akaanksh/tild/tree/master/quick">Click here</a></td>
             </tr>
             <tr>
                 <td>Tild Pro</td>
@@ -111,7 +124,7 @@
         &#x3C;/ul&#x3E;
     &#x3C;/div&#x3E;
 &#x3C;/footer&#x3E;</code></pre>
-        <p>Tild Minimal does not include Code Highlighting; optionally, you can convert you code so that highlights occur using <a href="code.html">this page</a>. If you choose to do this, it would look something like this:</p>
+        <p>Tild Quick does not include Code Highlighting; optionally, you can convert you code so that highlights occur using <a href="code.html">this page</a>. If you choose to do this, it would look something like this:</p>
 <pre class="  language-html"><code id="output" class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>copy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token entity" title="©">&amp;copy;</span> Akaanksh Raj<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>social<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -128,13 +141,14 @@
         <p>Inline loaders:</p>
         <button class="inline-loader">Loading</button><br>
         <button class="outline inline-loader">Loading</button><br>
+        <button class="inverted inline-loader">Loading</button><br>
         <p class="inline-loader">Content Loading</p>
     
-        <p>Full Page Loader: (Loading message below spinner is not included in Tild Minimal)</p>
+        <p>Full Page Loader: (Loading message below spinner is not included in Tild Quick)</p>
         <div class="full-page" style="position:relative;min-height:350px;">
             <div>
                 <div class="loader"></div>
-                <h3 id="funnies">loading messages will be displayed here</h3>
+                <h4 id="funnies">loading messages will be displayed here</h4>
             </div>
         </div>
         <button class="outline" onclick="show('loading-messages', 'block')">View Code for Loading Messages</button>
@@ -280,6 +294,24 @@ document<span class="token punctuation">.</span><span class="token function">get
     <span class="token keyword">var</span> rand <span class="token operator">=</span> funnies<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> funnies<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'funnies'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerText <span class="token operator">=</span> rand<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">4000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+        </div>
+        
+        <h1>Alerts</h1>
+        <div class="alert success">
+            <div class="message">You have successfully learnt to use Tild</div>
+            <div class="action"><a href="#">Let's Develop</a></div>
+        </div>
+        <div class="alert info">
+            <div class="message">A new version of Tild is available</div>
+            <div class="action"><a href="#">Upgrade</a></div>
+        </div>
+        <div class="alert warning">
+            <div class="message">Tild Quick doesn't have a mobile/tablet version yet</div>
+            <div class="action"><a href="#">See Alternatives</a></div>
+        </div>
+        <div class="alert fail">
+            <div class="message">Tild Quick failed to compile</div>
+            <div class="action"><a href="#">View Error Log</a></div>
         </div>
     </div>
     
