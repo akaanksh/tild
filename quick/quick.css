@@ -579,7 +579,6 @@ header {
   width: 100%;
   box-sizing: border-box;
   top: 0;
-  bottom: 0;
 }
 header.fixed {
   position: fixed;
@@ -590,7 +589,7 @@ header .logo {
   font-family: "Sofia-Pro";
 }
 header .links {
-  flex: 1;
+  flex: 3;
   color: #fff;
   font-family: "Sofia-Pro";
   display: flex;
@@ -602,7 +601,7 @@ header .links ul {
   display: flex;
   list-style-type: none;
   justify-content: flex-end;
-  height: 100%;
+  height: auto;
   align-items: center;
 }
 header .links ul li {
