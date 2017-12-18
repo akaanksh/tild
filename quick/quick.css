@@ -234,6 +234,7 @@ textarea {
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
   outline: none;
+  box-sizing: border-box;
 }
 input:hover,
 textarea:hover {
