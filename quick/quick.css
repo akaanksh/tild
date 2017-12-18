@@ -578,6 +578,8 @@ header {
   display: flex;
   width: 100%;
   box-sizing: border-box;
+  top: 0;
+  bottom: 0;
 }
 header.fixed {
   position: fixed;
@@ -591,6 +593,9 @@ header .links {
   flex: 1;
   color: #fff;
   font-family: "Sofia-Pro";
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 header .links ul {
   padding: 0;
