@@ -550,6 +550,7 @@ body > .inline-loader:before {
   color: #fff;
   display: flex;
   flex-flow: row wrap;
+  min-height: 600px;
   align-items: center;
   box-sizing: border-box;
 }
