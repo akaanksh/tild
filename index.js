@@ -7,7 +7,7 @@ const download = require('download');
  
 program
     .usage("tild <cmd> [type] [options]")
-    .version('0.0.1-a.4')
+    .version('0.0.1-a.5')
     .arguments('<cmdVal> [typeVal] [dirVal]')
     .action(function (cmdVal, typeVal, dirVal) {
         cmd = cmdVal;
@@ -50,7 +50,7 @@ if (cmd === "o" || cmd === "open") {
     }
     if (type === "c" || type === "cdn") {
         console.log("Tild's CDN Links page is at " + chalk.white.bgBlue("tild.ga/cdn-list"))
-        open("https://tild-cdn.akaanksh.ga/quick/index.html?ref=cli")
+        open("https://cdn.tild.ga/quick/index.html?ref=cli")
     }
 }
 
@@ -62,8 +62,8 @@ if (cmd === 'g' || cmd === 'generate') {
     }
     if (type === 'q' || type === 'quick') {
         if (typeof dir === "undefined") {
-            download('https://tild-cdn.akaanksh.ga/quick/quick.css', '/');
-            download('https://tild-cdn.akaanksh.ga/quick/quick.styl', '/').then(() => {
+            download('https://cdn.tild.ga/quick/quick.css', '/');
+            download('https://cdn.tild.ga/quick/quick.styl', '/').then(() => {
                 console.log('Quick version of Tild was put in ' + chalk.white.bgBlue('/'));
             });
         }
