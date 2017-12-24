@@ -212,6 +212,16 @@ button:active,
 .grid .col-12 {
   flex: 12;
 }
+@media screen and (max-width: 750px) {
+  .grid {
+    display: block !important;
+  }
+  .col,
+  [class^='col-'],
+  [class*=" col-"] {
+    margin-left: 0 !important;
+  }
+}
 .fw-100 {
   font-weight: 100 !important;
 }
