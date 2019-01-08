@@ -475,6 +475,7 @@ body > .inline-loader:before {
   display: flex;
   border-radius: 5px;
   color: #000;
+  box-sizing: border-box;
 }
 .alert a {
   color: #000;
